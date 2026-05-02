@@ -1,0 +1,72 @@
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-dm-serif: "DM Serif Display", serif;
+    --font-dm-sans: "DM Sans", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-fog text-ink font-sans font-light overflow-x-hidden;
+  }
+
+  ::selection {
+    @apply bg-ink text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-bone rounded-full;
+  }
+}
+
+@layer utilities {
+  .glass-nav {
+    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(28px) saturate(180%) brightness(1.05);
+    box-shadow:
+      0 6px 28px rgba(0, 0, 0, 0.07),
+      inset 0 1.5px 0 rgba(255, 255, 255, 0.85),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #1a1a1a 0%, #555 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Scroll progress bar */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: #1a1a1a;
+  z-index: 500;
+  transform-origin: left;
+  transform: scaleX(0);
+}
